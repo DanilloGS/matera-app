@@ -3,4 +3,5 @@ export interface IHttpAdapter {
 	post<T, U>(path: string, payload: U, headers?: HeadersInit): Promise<T>;
 	delete<T>(path: string, headers?: HeadersInit): Promise<T>;
 	put<T, U>(path: string, payload: U, headers?: HeadersInit): Promise<T>;
+	setDefaultHeaders(headers: HeadersInit): void;
 }

@@ -5,17 +5,21 @@ import { IDataBaseRepository } from '../../Domain/Protocols';
 import { userDtoToUserParser, userToUserDtoParser } from '../Helpers';
 import { AddressToAddressDtoParser } from '../Helpers/addressParser';
 
-type _IDataBaseRepository = Omit<
-	IDataBaseRepository<IUser>,
-	'getAll' | 'delete' | 'update'
->;
-
-export class UserRepository implements _IDataBaseRepository {
+export class UserRepository implements IDataBaseRepository<IUser> {
 	private readonly _http: IHttpAdapter;
 	private readonly _path = '/user';
 
 	constructor(http: IHttpAdapter) {
 		this._http = http;
+	}
+	getAll(): Promise<IUser[]> {
+		throw new Error('Method not implemented.');
+	}
+	delete(_id: string): Promise<void> {
+		throw new Error('Method not implemented.');
+	}
+	update(_id: string, _data: IUser): Promise<IUser> {
+		throw new Error('Method not implemented.');
 	}
 
 	public async getById(id: string): Promise<IUser | undefined> {

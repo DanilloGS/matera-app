@@ -1,4 +1,4 @@
-import { IHttpAdapter } from '../../../Domain/Protocols/IHttpAdapter';
+import { IHttpAdapter } from '../../Domain/Protocols/IHttpAdapter';
 
 class HttpAdapter implements IHttpAdapter {
 	private readonly _url: string;
@@ -51,6 +51,10 @@ class HttpAdapter implements IHttpAdapter {
 		});
 
 		return response.json();
+	}
+
+	public setDefaultHeaders(headers: HeadersInit): void {
+		Object.assign(this._headers, headers);
 	}
 }
 
