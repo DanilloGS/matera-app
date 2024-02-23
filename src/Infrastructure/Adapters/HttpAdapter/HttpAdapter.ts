@@ -1,4 +1,4 @@
-import { IHttpAdapter } from '../../../Data/Protocols/IHttpAdapter';
+import { IHttpAdapter } from '../../../Domain/Interfaces/Protocols/IHttpAdapter';
 
 class HttpAdapter implements IHttpAdapter {
 	private readonly _url: string;
