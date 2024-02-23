@@ -5,8 +5,8 @@ export interface ViaCepDto {
 	bairro: string;
 	localidade: string;
 	uf: string;
-	ibge: string;
-	gia: string;
-	ddd: string;
-	siafi: string;
+	ibge?: string;
+	gia?: string;
+	ddd?: string;
+	siafi?: string;
 }

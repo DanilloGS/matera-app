@@ -4,14 +4,14 @@ export interface UserDto {
 	cpf: string;
 	sexo: string;
 	dt_nascimento: number;
+	email: string;
+	senha: string;
+	token?: string;
+	image?: string;
 	cep: string;
 	cidade: string;
 	estado: string;
 	logradouro: string;
 	bairro: string;
 	complemento: string;
-	email: string;
-	senha: string;
-	token: string;
-	image: string;
 }

@@ -1,6 +1,6 @@
-import { IUser } from '../../../Data/ValueObjects';
+import { IAddress, IUser } from '../../../Data/ValueObjects';
 
 export interface IUserUseCase {
 	Login: (email: string, password: string) => Promise<IUser | undefined>;
-	SignUp: (email: string, password: string) => Promise<void>;
+	SignUp: (user: IUser, address: IAddress) => Promise<void>;
 }

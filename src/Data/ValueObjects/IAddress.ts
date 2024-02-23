@@ -5,8 +5,4 @@ export interface IAddress {
 	neighborhood: string;
 	city: string;
 	state: string;
-	ibge: string;
-	gia: string;
-	ddd?: string;
-	siafi?: string;
 }

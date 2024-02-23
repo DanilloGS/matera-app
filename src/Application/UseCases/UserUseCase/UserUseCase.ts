@@ -1,3 +1,4 @@
+import { IAddress, IUser } from '../../../Data/ValueObjects';
 import { UserEntity } from '../../../Domain/Entites/User';
 import { IUserRepository } from '../../../Domain/Interfaces/Repositories';
 import { IUserUseCase } from '../../../Domain/Interfaces/UseCases';
@@ -11,5 +12,8 @@ export class UserUseCase implements IUserUseCase {
 	Login = async (email: string, password: string) => {
 		return await this._userEntity.getUser({ email, password });
 	};
-	SignUp: (email: string, password: string) => Promise<void>;
+
+	SignUp = async (user: IUser, address: IAddress) => {
+		return await this._userEntity.createUser(user, address);
+	};
 }

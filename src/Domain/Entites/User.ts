@@ -1,5 +1,5 @@
 import { IUserEntity } from '../../Data/Entities';
-import { IUserCredentials } from '../../Data/ValueObjects';
+import { IAddress, IUser, IUserCredentials } from '../../Data/ValueObjects';
 import { IUserRepository } from '../Interfaces/Repositories/IUserRepository';
 
 export class UserEntity implements IUserEntity {
@@ -15,5 +15,10 @@ export class UserEntity implements IUserEntity {
 		if (user && user.password === password) {
 			return user;
 		}
+	};
+
+	createUser = async (user: IUser, address: IAddress) => {
+		const _user = { ...user, ...address };
+		await this._userRepository.createUser(_user);
 	};
 }

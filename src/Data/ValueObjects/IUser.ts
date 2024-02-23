@@ -6,6 +6,6 @@ export interface IUser {
 	dateOfBirth: number;
 	email: string;
 	password: string;
-	token: string;
-	image: string;
+	token?: string;
+	image?: string;
 }

@@ -1,3 +1,3 @@
-import { userParser } from './userParser';
+import { userDtoToUserParser, userToUserDtoParser } from './userParser';
 
-export { userParser };
+export { userDtoToUserParser, userToUserDtoParser };
