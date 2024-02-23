@@ -23,11 +23,16 @@ export class UserRepository implements IUserRepository {
 		}
 	}
 
-	public async createUser(user: IUser & IAddress): Promise<void> {
-		const _user = userToUserDtoParser(user);
+	public async createUser(user: IUser & IAddress): Promise<IUser> {
+		const _user = userToUserDtoParser(user) as UserDto;
 		const address = AddressToAddressDtoParser(user);
 		const newUserData = { ..._user, ...address };
 
-		await this._http.post(this._path, newUserData);
+		const newUser = await this._http.post<UserDto, UserDto>(
+			this._path,
+			newUserData
+		);
+
+		return userDtoToUserParser(newUser);
 	}
 }
