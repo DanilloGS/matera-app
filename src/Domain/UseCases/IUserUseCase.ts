@@ -1,4 +1,4 @@
-import { IAddress, IUser } from '../../../Data/ValueObjects';
+import { IAddress, IUser } from '../ValueObjects';
 
 export interface IUserUseCase {
 	Login: (email: string, password: string) => Promise<IUser | undefined>;

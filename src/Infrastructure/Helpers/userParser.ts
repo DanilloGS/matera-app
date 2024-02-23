@@ -1,5 +1,5 @@
-import { IUser } from '../../Data/ValueObjects';
-import { UserDto, ViaCepDto } from '../../Domain/Interfaces/DTO';
+import { IUser } from '../../Domain/ValueObjects';
+import { UserDto, ViaCepDto } from '../../Domain/DTO';
 
 export const userDtoToUserParser = (userDto: UserDto): IUser => {
 	return {

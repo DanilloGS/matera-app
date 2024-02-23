@@ -1,5 +1,5 @@
-import { IAddress } from '../../Data/ValueObjects';
-import { ViaCepDto } from '../../Domain/Interfaces/DTO';
+import { IAddress } from '../../Domain/ValueObjects';
+import { ViaCepDto } from '../../Domain/DTO';
 
 export const addressDtoToAddressParser = (addressDto: ViaCepDto): IAddress => {
 	return {

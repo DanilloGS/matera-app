@@ -1,5 +1,5 @@
-import { IProduct } from '../../Data/ValueObjects';
-import { ProductDto } from '../../Domain/Interfaces/DTO';
+import { IProduct } from '../../Domain/ValueObjects';
+import { ProductDto } from '../../Domain/DTO';
 
 export const productDtoToProductParser = (product: ProductDto): IProduct => {
 	return {

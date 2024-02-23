@@ -1,13 +1,13 @@
-import { IProduct } from '../../Data/ValueObjects';
-import { ProductDto } from '../../Domain/Interfaces/DTO';
-import { IHttpAdapter } from '../../Domain/Interfaces/Protocols';
-import { IProductRepository } from '../../Domain/Interfaces/Repositories';
+import { IProduct } from '../../Domain/ValueObjects';
+import { ProductDto } from '../../Domain/DTO';
+import { IHttpAdapter } from '../../Domain/Protocols';
+import { IDataBaseRepository } from '../../Domain/Protocols';
 import {
 	productDtoToProductParser,
 	productToProductDtoParser
 } from '../Helpers';
 
-export class ProductRepository implements IProductRepository {
+export class ProductRepository implements IDataBaseRepository<IProduct> {
 	private readonly _http: IHttpAdapter;
 	private readonly _path = '/produto';
 
@@ -15,22 +15,22 @@ export class ProductRepository implements IProductRepository {
 		this._http = http;
 	}
 
-	getProducts = async (): Promise<IProduct[]> => {
+	getAll = async (): Promise<IProduct[]> => {
 		const productsDto = await this._http.get<ProductDto[]>(this._path);
 		const products = productsDto.map(productDtoToProductParser);
 		return products;
 	};
 
-	getProductById = async (id: string) => {
+	getById = async (id: string) => {
 		const productDto = await this._http.get<ProductDto>(`${this._path}/${id}`);
 		return productDtoToProductParser(productDto);
 	};
 
-	deleteProduct = async (id: string) => {
+	delete = async (id: string) => {
 		await this._http.delete(`${this._path}/${id}`);
 	};
 
-	createProduct = async (product: IProduct) => {
+	create = async (product: IProduct) => {
 		let productDto = productToProductDtoParser(product);
 		productDto = await this._http.post<ProductDto, ProductDto>(
 			this._path,
@@ -40,11 +40,11 @@ export class ProductRepository implements IProductRepository {
 		return productDtoToProductParser(productDto);
 	};
 
-	editProduct = async (product: IProduct) => {
+	update = async (id: string, product: IProduct) => {
 		let productDto = productToProductDtoParser(product);
 
 		productDto = await this._http.put<ProductDto, ProductDto>(
-			this._path,
+			`${this._path}/${id}`,
 			productDto
 		);
 
