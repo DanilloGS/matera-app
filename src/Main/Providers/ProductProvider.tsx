@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IProductUseCase } from '../../Domain/UseCases';
-import { IProduct, IUser } from '../../Domain/ValueObjects';
+import { IProduct } from '../../Domain/ValueObjects';
 
 interface IProductContext {
 	loading: boolean;
@@ -18,20 +18,14 @@ export const ProductContext = React.createContext<IProductContext>(
 interface IProductProviderProps {
 	children: React.ReactNode;
 	productUseCase: IProductUseCase;
-	user: IUser | undefined;
 }
 
 const ProductProvider = ({
 	children,
-	user,
 	productUseCase
 }: IProductProviderProps) => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [loading, setLoading] = useState(false);
-
-	if (!user) {
-		return { children };
-	}
 
 	const getAllProducts = async () => {
 		setLoading(true);

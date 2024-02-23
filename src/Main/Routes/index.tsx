@@ -1,15 +1,16 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import PublicRoutes from './PublicRoutes';
+import PrivateRoutes from './PrivateRoutes';
+import { useUser } from '../Hooks/useUser';
 
 const Routes = () => {
+	const { user } = useUser();
+
 	return (
 		<BrowserRouter>
-			<div>Routes</div>
-			{/* <Switch> */}
-			{/* <Route exact path="/" component={Home} />
-				<Route path="/about" component={About} />
-				<Route path="/contact" component={Contact} /> */}
-			{/* </Switch> */}
+			<PublicRoutes />
+			{user && <PrivateRoutes />}
 		</BrowserRouter>
 	);
 };
