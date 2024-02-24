@@ -1,0 +1,27 @@
+@import '../../styles/variables.scss';
+
+.cardIcon {
+	display: flex;
+	border-radius: $medium-radius;
+	height: fit-content;
+	width: fit-content;
+	padding: $large-spacing;
+	border: solid $small-border-width $ligh-grey;
+	flex-direction: column;
+}
+
+.cardIcon img {
+	box-shadow: $shadow-color-medium;
+	border-radius: $small-radius;
+	margin-bottom: $medium-spacing;
+}
+
+.cardIcon span {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.cardIcon span p {
+	margin: $small-spacing 0;
+}
