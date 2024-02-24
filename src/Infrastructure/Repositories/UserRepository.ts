@@ -12,20 +12,25 @@ export class UserRepository implements IDataBaseRepository<IUser> {
 	constructor(http: IHttpAdapter) {
 		this._http = http;
 	}
+
 	getAll(): Promise<IUser[]> {
 		throw new Error('Method not implemented.');
 	}
+
 	delete(_id: string): Promise<void> {
 		throw new Error('Method not implemented.');
 	}
+
 	update(_id: string, _data: IUser): Promise<IUser> {
 		throw new Error('Method not implemented.');
 	}
 
 	public async getById(id: string): Promise<IUser | undefined> {
-		const userDto = await this._http.get<UserDto>(`${this._path}?email=${id}`);
+		const userDto = await this._http.get<UserDto[]>(
+			`${this._path}?email=${id}`
+		);
 		if (userDto) {
-			const user = userDtoToUserParser(userDto);
+			const user = userDtoToUserParser(userDto[0]);
 			return user;
 		}
 	}
