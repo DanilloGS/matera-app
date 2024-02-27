@@ -22,6 +22,7 @@ const ProductModal = ({
 	...rest
 }: ProductModalProps) => {
 	const [money, setMoney] = useState(product?.price || '');
+	const [image, setImage] = useState(product?.avatar || '');
 
 	const _onSubmit = (data: any) => {
 		onSubmit(data);
@@ -89,7 +90,12 @@ const ProductModal = ({
 			footerButtons={footerButtons}
 		>
 			<Box className="product-modal--content-container">
-				<ImageUploader name="avatar" required image={product?.avatar} />
+				<ImageUploader
+					name="avatar"
+					required
+					image={image}
+					onChange={setImage}
+				/>
 				<Box className="product-modal--text-input-container">
 					{renderTextInput()}
 				</Box>

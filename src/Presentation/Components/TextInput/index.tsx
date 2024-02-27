@@ -20,8 +20,8 @@ const TextInput = ({
 		<TextField
 			{...rest}
 			{...registerValues}
-			{...options}
 			id={name}
+			value={value}
 			InputLabelProps={{ ...InputLabelProps, shrink: true }}
 		/>
 	);
