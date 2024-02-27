@@ -8,8 +8,8 @@ import FormPage from '../FormPage';
 import { ButtonProps } from '../../../Components/Button';
 import './LoginPage-styles.scss';
 
-const USER = 'teste@matera.com';
-const PASSWORD = '123456';
+// const USER = 'teste@matera.com';
+// const PASSWORD = '123456';
 
 const LoginPage = () => {
 	const navigate = useNavigate();
@@ -45,8 +45,8 @@ const LoginPage = () => {
 	return (
 		<FormPage title="Login" buttons={buttons} onSubmit={onSubmit}>
 			<Box className="login-page--form-box">
-				<TextField name="email" label="Email" value={USER} required />
-				<TextField name="password" label="Senha" value={PASSWORD} required />
+				<TextField name="email" label="Email" required />
+				<TextField name="password" label="Senha" required />
 			</Box>
 		</FormPage>
 	);
