@@ -18,10 +18,12 @@ export class UserRepository implements IDataBaseRepository<IUser> {
 	}
 
 	delete(_id: string): Promise<void> {
+		console.error(_id);
 		throw new Error('Method not implemented.');
 	}
 
 	update(_id: string, _data: IUser): Promise<IUser> {
+		console.error(_id, _data);
 		throw new Error('Method not implemented.');
 	}
 

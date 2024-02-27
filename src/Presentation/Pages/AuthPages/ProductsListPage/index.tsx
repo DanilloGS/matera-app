@@ -166,6 +166,7 @@ const ProductsListPage = () => {
 				<Box className="products-list--filters-input">
 					<TextInput
 						label="Filtrar por nome"
+						name="nameFilter"
 						value={nameFilter}
 						onChange={(e) => {
 							setNameFilter(e.target.value);
@@ -173,7 +174,7 @@ const ProductsListPage = () => {
 					/>
 					<Button onClick={filterByName}>Buscar</Button>
 					<Button onClick={eraseFilters} color="error">
-						Apagar
+						Apagar Filtro
 					</Button>
 				</Box>
 			</Box>

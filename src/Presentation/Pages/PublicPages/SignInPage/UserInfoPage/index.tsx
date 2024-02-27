@@ -19,15 +19,6 @@ const UserInfoPage = ({ user }: UserInfoPageProps) => {
 		{ id: 'other', value: 'o', label: 'Outro' }
 	];
 
-	const isFullCpfValid = () => {
-		const cpfOnlyNumbers = cpf.replace(/\D/g, '');
-		const cpfLength = cpfOnlyNumbers.length;
-		if (cpfLength === 11) {
-			return cpfValidator(cpfOnlyNumbers);
-		}
-		return true;
-	};
-
 	const renderTextInput = () => {
 		const textInputProps: TextFieldProps[] = [
 			{
@@ -41,7 +32,7 @@ const UserInfoPage = ({ user }: UserInfoPageProps) => {
 				label: 'CPF',
 				value: cpf,
 				inputProps: { maxLength: 14, minLength: 14 },
-				error: !isFullCpfValid(),
+				error: !cpfValidator(cpf),
 				onChange: (e: any) => {
 					const value = e.target.value;
 					setCpf(cpfMask(value));

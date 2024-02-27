@@ -1,5 +1,6 @@
 export const cpfMask = (value: string) => {
-	let cpf = value.replace(/\D/g, '');
+	let cpf = value.replace(/[a-zA-Z]/g, '');
+	cpf = cpf.replace(/\D/g, '');
 
 	cpf = cpf.slice(0, 11);
 

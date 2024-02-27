@@ -22,7 +22,6 @@ const TextInput = ({
 			{...registerValues}
 			{...options}
 			id={name}
-			// value={value}
 			InputLabelProps={{ ...InputLabelProps, shrink: true }}
 		/>
 	);
