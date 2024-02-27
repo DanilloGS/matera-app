@@ -89,7 +89,7 @@ const ProductModal = ({
 			footerButtons={footerButtons}
 		>
 			<Box className="product-modal--content-container">
-				<ImageUploader name="avatar" required />
+				<ImageUploader name="avatar" required image={product?.avatar} />
 				<Box className="product-modal--text-input-container">
 					{renderTextInput()}
 				</Box>

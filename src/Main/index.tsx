@@ -10,6 +10,7 @@ import MateraAppRoutes from './Routes';
 import ProductProvider from './Providers/ProductProvider';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import HeaderProvider from '../Presentation/Providers/HeaderProvider';
 
 const BASE_URL = 'https://6256fc506ea7037005434e84.mockapi.io/api/v1';
 
@@ -26,7 +27,9 @@ const Main = () => {
 		<LocalizationProvider dateAdapter={AdapterDateFns}>
 			<UserProvider userUseCase={userUseCase} httpAdapter={httpMatera}>
 				<ProductProvider productUseCase={productUseCase}>
-					<MateraAppRoutes />
+					<HeaderProvider>
+						<MateraAppRoutes />
+					</HeaderProvider>
 				</ProductProvider>
 			</UserProvider>
 		</LocalizationProvider>

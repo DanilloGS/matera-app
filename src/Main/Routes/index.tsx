@@ -1,21 +1,48 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import PublicRoutes from './PublicRoutes';
-import PrivateRoutes from './PrivateRoutes';
+import { BrowserRouter, Route, Routes as RoutedDom } from 'react-router-dom';
+import { PublicRoutesArray } from './PublicRoutes';
+import { PrivateRoutesArray, PrivateWrapper } from './PrivateRoutes';
 import { useUser } from '../Hooks/useUser';
-import HeaderProvider from '../../Presentation/Providers/HeaderProvider';
 
 const Routes = () => {
 	const { user } = useUser();
 
+	const renderPublicRoutes = () => {
+		return PublicRoutesArray.map((route, index) => {
+			return (
+				<Route
+					key={index}
+					path={route.path}
+					element={React.createElement(route.element)}
+				/>
+			);
+		});
+	};
+
+	const renderPrivateRoutes = () => {
+		if (user) {
+			return PrivateRoutesArray.map((route, index) => {
+				return (
+					<Route
+						key={index}
+						path={route.path}
+						element={
+							<PrivateWrapper>
+								{React.createElement(route.element)}
+							</PrivateWrapper>
+						}
+					/>
+				);
+			});
+		}
+	};
+
 	return (
 		<BrowserRouter>
-			<PublicRoutes />
-			{user && (
-				<HeaderProvider>
-					<PrivateRoutes />
-				</HeaderProvider>
-			)}
+			<RoutedDom>
+				{renderPublicRoutes()}
+				{renderPrivateRoutes()}
+			</RoutedDom>
 		</BrowserRouter>
 	);
 };
