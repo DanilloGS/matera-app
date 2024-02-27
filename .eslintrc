@@ -20,7 +20,9 @@
 	},
 	"plugins": ["react", "@typescript-eslint"],
 	"rules": {
-		"indent": ["error", "tab"],
+		"@typescript-eslint/no-explicit-any": ["off"],
+		"@typescript-eslint/no-unused-vars": ["warn"],
+		// "indent": ["error", "tab"],
 		"linebreak-style": ["error", "unix"],
 		"quotes": ["warn", "single"],
 		"semi": ["error", "always"]

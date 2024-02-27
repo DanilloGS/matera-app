@@ -1,17 +1,19 @@
 // Shadow
-$shadow-color-medium: 2.5px 4px 1.2px #ccccccff;
+$shadow-color: 2.5px 4px 1.2px #ccccccff;
 
 // Spacing
 $x-small-spacing: 2px;
 $small-spacing: 4px;
 $medium-spacing: 8px;
 $large-spacing: 12px;
+$x-large-spacing: 24px;
+$xx-large-spacing: 48px;
 
 // Radius
 $x-small-radius: 2px;
 $small-radius: 4px;
 $medium-radius: 8px;
-$large-radius: 12px;
+$large-radius: 16px;
 
 // Colors;
 $ligh-grey: #cccccc;
@@ -30,3 +32,4 @@ $light-color: #f8f9fa;
 $small-border-width: 1px;
 $medium-border-width: 2px;
 $large-border-width: 4px;
+$border-light-grey: $small-border-width solid $ligh-grey;

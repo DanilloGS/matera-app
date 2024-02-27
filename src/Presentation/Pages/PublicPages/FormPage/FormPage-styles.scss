@@ -1,0 +1,54 @@
+@import '../../../styles/variables.scss';
+
+$height: 98vh;
+$width: 98vw;
+
+.form-page--blue-background {
+	display: flex;
+	align-content: center;
+	flex-direction: row;
+	width: $width;
+	height: $height;
+	background: rgb(3, 0, 48);
+	background: linear-gradient(
+		90deg,
+		rgba(3, 0, 48, 1) 0%,
+		rgba(9, 9, 121, 1) 16%,
+		rgba(0, 212, 255, 1) 94%
+	);
+}
+
+.form-page--image-box {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.form-page--content-area {
+	display: flex;
+	width: 40vw;
+	height: $height;
+	background-color: white;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.form-page--content-area h4 {
+	margin-bottom: $xx-large-spacing;
+}
+
+.form-page--form-box {
+	display: flex;
+	gap: $x-large-spacing;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.form-page--button-box {
+	display: flex;
+	gap: $xx-large-spacing;
+	flex-direction: row;
+}

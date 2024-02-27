@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { IUserUseCase } from '../../Domain/UseCases';
 import { IAddress, IUser } from '../../Domain/ValueObjects';
 import { IHttpAdapter } from '../../Domain/Protocols';
+import { usePersistState } from '../Hooks';
 
 interface IUserProvider {
 	user: IUser | undefined;
-	login: (email: string, password: string) => Promise<void>;
+	login: (email: string, password: string) => Promise<IUser | undefined>;
 	signUp: (user: IUser, address: IAddress) => Promise<void>;
+	signOut: () => Promise<void>;
 	loading: boolean;
 }
 
@@ -25,7 +27,7 @@ const UserProvider = ({
 	userUseCase,
 	httpAdapter
 }: IUserProviderProps) => {
-	const [user, setUser] = useState<IUser>();
+	const [user, setUser] = usePersistState<IUser | undefined>(undefined, 'user');
 	const [loading, setLoading] = useState(false);
 
 	const login = async (email: string, password: string) => {
@@ -36,6 +38,7 @@ const UserProvider = ({
 			httpAdapter.setDefaultHeaders({ Authorization: `Bearer ${user.token}` });
 		}
 		setLoading(true);
+		return user;
 	};
 
 	const signUp = async (user: IUser, address: IAddress) => {
@@ -44,8 +47,12 @@ const UserProvider = ({
 		setLoading(false);
 	};
 
+	const signOut = async () => {
+		setUser(undefined);
+	};
+
 	return (
-		<UserContext.Provider value={{ user, login, loading, signUp }}>
+		<UserContext.Provider value={{ user, login, loading, signUp, signOut }}>
 			{children}
 		</UserContext.Provider>
 	);

@@ -1,0 +1,27 @@
+@import '../../styles/variables.scss';
+
+.screen-container--main-container {
+	display: flex;
+	flex-direction: row;
+	align-self: stretch;
+	height: 98vh;
+	width: 99vw;
+	flex: 1;
+}
+
+.screen-container--side-bar {
+	display: flex;
+	flex-direction: column;
+	width: 250px;
+	align-items: center;
+	border: $border-light-grey;
+}
+
+.screen-container--content {
+	display: flex;
+	gap: $large-spacing;
+	flex-direction: column;
+	align-self: stretch;
+	overflow-y: auto;
+	overflow-x: hidden;
+}

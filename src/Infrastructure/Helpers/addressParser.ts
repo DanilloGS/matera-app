@@ -12,7 +12,7 @@ export const addressDtoToAddressParser = (addressDto: ViaCepDto): IAddress => {
 	};
 };
 
-export const AddressToAddressDtoParser = (address: IAddress): ViaCepDto => {
+export const addressToAddressDtoParser = (address: IAddress): ViaCepDto => {
 	return {
 		cep: address.zipCode,
 		localidade: address.city,

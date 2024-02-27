@@ -31,7 +31,8 @@ export class ProductRepository implements IDataBaseRepository<IProduct> {
 	};
 
 	create = async (product: IProduct) => {
-		let productDto = productToProductDtoParser(product);
+		const createdAt = new Date().toDateString();
+		let productDto = productToProductDtoParser({ ...product, createdAt });
 		productDto = await this._http.post<ProductDto, ProductDto>(
 			this._path,
 			productDto

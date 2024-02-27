@@ -2,10 +2,30 @@ import React from 'react';
 import { useFormRegister } from '../../Hooks';
 import { TextField, TextFieldProps } from '@mui/material';
 
-const TextInput = ({ name, onBlur, onChange, ...rest }: TextFieldProps) => {
-	const registerValues = useFormRegister(name, { onBlur, onChange });
+const TextInput = ({
+	name,
+	onBlur,
+	onChange,
+	InputLabelProps,
+	value,
+	...rest
+}: TextFieldProps) => {
+	const { register } = useFormRegister(name, value);
 
-	return <TextField {...registerValues} {...rest} />;
+	const options = { onBlur, onChange };
+
+	const registerValues = register(options);
+
+	return (
+		<TextField
+			{...rest}
+			{...registerValues}
+			{...options}
+			id={name}
+			// value={value}
+			InputLabelProps={{ ...InputLabelProps, shrink: true }}
+		/>
+	);
 };
 
 export default TextInput;

@@ -1,0 +1,39 @@
+@import '../../../styles/variables.scss';
+
+.products-list--table-name-cell-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: $x-large-spacing;
+}
+
+.products-list--pagination-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: $x-large-spacing;
+}
+
+.products-list--table-container {
+	display: flex;
+	flex-direction: column;
+	height: fit-content;
+	overflow-x: hidden;
+}
+
+.products-list--filters-container {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	margin: $large-spacing;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.products-list--filters-input {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: $large-spacing;
+	margin-right: $large-spacing;
+}

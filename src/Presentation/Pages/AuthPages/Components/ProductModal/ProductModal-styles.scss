@@ -1,0 +1,20 @@
+@import '../../../../styles/variables.scss';
+
+.product-modal--content-container {
+	display: flex;
+	flex-direction: row;
+	gap: $xx-large-spacing;
+}
+
+.product-modal--text-input-container {
+	display: flex;
+	flex-direction: column;
+	gap: $large-spacing;
+	justify-content: space-around;
+}
+
+.product-modal--modal {
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}

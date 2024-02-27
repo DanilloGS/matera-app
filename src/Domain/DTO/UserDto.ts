@@ -3,7 +3,7 @@ export interface UserDto {
 	sobrenome: string;
 	cpf: string;
 	sexo: string;
-	dt_nascimento: number;
+	dt_nascimento: string;
 	email: string;
 	senha: string;
 	token?: string;

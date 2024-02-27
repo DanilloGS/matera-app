@@ -3,7 +3,7 @@ import { UserDto } from '../../Domain/DTO';
 import { IHttpAdapter } from '../../Domain/Protocols';
 import { IDataBaseRepository } from '../../Domain/Protocols';
 import { userDtoToUserParser, userToUserDtoParser } from '../Helpers';
-import { AddressToAddressDtoParser } from '../Helpers/addressParser';
+import { addressToAddressDtoParser } from '../Helpers/addressParser';
 
 export class UserRepository implements IDataBaseRepository<IUser> {
 	private readonly _http: IHttpAdapter;
@@ -37,7 +37,7 @@ export class UserRepository implements IDataBaseRepository<IUser> {
 
 	public async create(user: IUser & IAddress): Promise<IUser> {
 		const _user = userToUserDtoParser(user) as UserDto;
-		const address = AddressToAddressDtoParser(user);
+		const address = addressToAddressDtoParser(user);
 		const newUserData = { ..._user, ...address };
 
 		const newUser = await this._http.post<UserDto, UserDto>(

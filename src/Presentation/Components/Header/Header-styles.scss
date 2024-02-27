@@ -1,0 +1,39 @@
+@import '../../styles/variables.scss';
+
+$header-size: 64px;
+
+.header--container {
+	width: 100%;
+	overflow-y: visible;
+	display: flex;
+	justify-content: space-between;
+	min-height: $header-size;
+	height: $header-size;
+	border: $border-light-grey;
+	box-shadow: 2.5px 4px 0px #ccccccff;
+	z-index: 1;
+}
+
+.header--container .accordion {
+	width: fit-content;
+	padding: 0 $xx-large-spacing;
+	right: $medium-spacing;
+	position: absolute;
+	box-shadow: 2.5px 4px 0px #ccccccff;
+}
+
+.header--container button {
+	z-index: 1;
+	margin-left: $medium-spacing;
+}
+
+.header--container button {
+	z-index: 1;
+	margin-left: $medium-spacing;
+}
+
+.header--container .button-box {
+	margin-left: $medium-spacing;
+	display: flex;
+	align-items: center;
+}

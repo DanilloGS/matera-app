@@ -1,13 +1,20 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { LoginPage, SignInPage } from '../../Presentation/Pages/PublicPages';
+import {
+	ProductDetailPage,
+	ProductsListPage
+} from '../../Presentation/Pages/AuthPages';
+import { Header, ScreenContainer } from '../../Presentation/Components';
 
 const PrivateRoutes = () => {
 	return (
-		<Routes>
-			<Route index path="/private" element={<LoginPage />} />
-			<Route path="/private-2" element={<SignInPage />} />
-		</Routes>
+		<ScreenContainer>
+			<Header />
+			<Routes>
+				<Route index path="/products" element={<ProductsListPage />} />
+				<Route path="/products/:id" element={<ProductDetailPage />} />
+			</Routes>
+		</ScreenContainer>
 	);
 };
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 
 export interface FormProps extends React.FormHTMLAttributes<HTMLFormElement> {
-	children: React.ReactNode;
+	children?: React.ReactNode;
 	onSubmit: (data: any) => void;
 }
 

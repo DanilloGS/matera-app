@@ -1,0 +1,39 @@
+@import '../../styles/variables.scss';
+
+.modal-component {
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
+
+.modal-component--container {
+	background-color: $white;
+	border-radius: $small-radius;
+	width: fit-content;
+	height: fit-content;
+	padding: 0 $x-large-spacing;
+	display: flex;
+	align-self: center;
+}
+
+.modal-component--content-container {
+	background-color: $white;
+	width: fit-content;
+	height: fit-content;
+	padding: $x-large-spacing;
+	align-self: center;
+}
+
+.modal--buttons-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-top: $x-large-spacing;
+}
+
+.modal--header-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: $large-spacing;
+}

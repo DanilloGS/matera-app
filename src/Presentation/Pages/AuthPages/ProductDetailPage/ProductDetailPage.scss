@@ -1,0 +1,39 @@
+@import '../../../styles/variables.scss';
+
+.product-detail-page--main-container {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.product-detail-page--content-container {
+	display: flex;
+	flex: 1;
+	flex-direction: row;
+	justify-content: space-evenly;
+	width: 100%;
+	align-content: center;
+	align-self: start;
+	align-items: center;
+}
+
+.product-detail-page--image-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-right: $xx-large-spacing;
+	gap: $large-spacing;
+}
+
+.product-detail-page--info-container {
+	display: flex;
+	flex-direction: column;
+	gap: $large-spacing;
+}
+
+.product-detail-page--buttons-box {
+	display: flex;
+	align-self: flex-end;
+	gap: $large-spacing;
+	margin: $xx-large-spacing $xx-large-spacing $xx-large-spacing 0;
+}

@@ -3,7 +3,9 @@ import {
 	RadioGroup as RadioGroupMaterial,
 	RadioGroupProps as RadioGroupPropsMaterial,
 	FormControlLabel,
-	Radio
+	Radio,
+	FormControl,
+	FormLabel
 } from '@mui/material';
 import { useFormRegister } from '../../Hooks';
 
@@ -19,8 +21,19 @@ interface RadioGroupProps extends RadioGroupPropsMaterial {
 	required?: boolean;
 }
 
-const RadioGroup = ({ name, options, required, ...rest }: RadioGroupProps) => {
-	const registerValues = useFormRegister(name);
+const RadioGroup = ({
+	name,
+	options,
+	required,
+	title,
+	value,
+	...rest
+}: RadioGroupProps) => {
+	const { register, setValue } = useFormRegister(name, value);
+
+	const registerValues = register({
+		onChange: (e) => setValue(e.target.value)
+	});
 
 	const renderRadioOptions = () => {
 		return options.map((option) => {
@@ -37,7 +50,10 @@ const RadioGroup = ({ name, options, required, ...rest }: RadioGroupProps) => {
 	};
 
 	return (
-		<RadioGroupMaterial {...rest}>{renderRadioOptions()}</RadioGroupMaterial>
+		<FormControl>
+			{title && <FormLabel>{title}</FormLabel>}
+			<RadioGroupMaterial {...rest}>{renderRadioOptions()}</RadioGroupMaterial>
+		</FormControl>
 	);
 };
 

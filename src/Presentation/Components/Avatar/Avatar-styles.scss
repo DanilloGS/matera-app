@@ -1,0 +1,10 @@
+@import '../../styles/variables.scss';
+
+.avatar-component--container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	gap: $large-spacing;
+	width: fit-content;
+}

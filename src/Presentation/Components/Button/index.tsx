@@ -5,7 +5,7 @@ import {
 } from '@mui/material';
 import './Button-style.scss';
 
-interface ButtonProps extends ButtonMaterialProps {}
+export interface ButtonProps extends ButtonMaterialProps {}
 
 const Button = ({ variant = 'outlined', ...rest }: ButtonProps) => {
 	return (

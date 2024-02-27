@@ -8,7 +8,7 @@ export const usePersistState = <T>(
 
 	const initialValue = useMemo(() => {
 		const localStorageValue = localStorage.getItem(storageId);
-		if (localStorageValue && value) {
+		if (localStorageValue && localStorageValue !== 'undefined') {
 			return JSON.parse(localStorageValue);
 		}
 		return value;
@@ -17,10 +17,8 @@ export const usePersistState = <T>(
 	const [state, setState] = useState(initialValue);
 
 	useEffect(() => {
-		if (value) {
-			const stateString = JSON.stringify(state);
-			localStorage.setItem(storageId, stateString);
-		}
+		const stateString = state ? JSON.stringify(state) : state;
+		localStorage.setItem(storageId, stateString);
 	}, [state]);
 
 	return [state, setState];

@@ -1,0 +1,12 @@
+@import '../../styles/variables.scss';
+
+.image-container {
+	border-radius: $small-radius;
+	box-shadow: $shadow-color;
+}
+
+.image-container img {
+	width: 100%;
+	height: 100%;
+	border-radius: $small-radius;
+}

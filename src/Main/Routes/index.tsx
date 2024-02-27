@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 import PublicRoutes from './PublicRoutes';
 import PrivateRoutes from './PrivateRoutes';
 import { useUser } from '../Hooks/useUser';
+import HeaderProvider from '../../Presentation/Providers/HeaderProvider';
 
 const Routes = () => {
 	const { user } = useUser();
@@ -10,7 +11,11 @@ const Routes = () => {
 	return (
 		<BrowserRouter>
 			<PublicRoutes />
-			{user && <PrivateRoutes />}
+			{user && (
+				<HeaderProvider>
+					<PrivateRoutes />
+				</HeaderProvider>
+			)}
 		</BrowserRouter>
 	);
 };
