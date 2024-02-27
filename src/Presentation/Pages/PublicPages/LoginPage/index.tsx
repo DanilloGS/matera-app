@@ -46,7 +46,7 @@ const LoginPage = () => {
 		<FormPage title="Login" buttons={buttons} onSubmit={onSubmit}>
 			<Box className="login-page--form-box">
 				<TextField name="email" label="Email" required />
-				<TextField name="password" label="Senha" required />
+				<TextField name="password" label="Senha" required type="password" />
 			</Box>
 		</FormPage>
 	);

@@ -12,6 +12,7 @@ interface UserInfoPageProps {
 
 const UserInfoPage = ({ user }: UserInfoPageProps) => {
 	const [cpf, setCpf] = useState(user?.cpf || '');
+	const [cpfError, setCpfError] = useState(false);
 
 	const radioOptions = [
 		{ id: 'male', value: 'm', label: 'Masculino' },
@@ -32,14 +33,24 @@ const UserInfoPage = ({ user }: UserInfoPageProps) => {
 				label: 'CPF',
 				value: cpf,
 				inputProps: { maxLength: 14, minLength: 14 },
-				error: !cpfValidator(cpf),
+				error: cpfError,
 				onChange: (e: any) => {
 					const value = e.target.value;
 					setCpf(cpfMask(value));
+				},
+				onBlur: () => {
+					const hasError = !cpfValidator(cpf);
+					setCpfError(hasError);
 				}
 			},
 			{ name: 'email', label: 'Email', value: user?.email },
-			{ name: 'password', label: 'Senha', value: user?.password }
+			{
+				name: 'password',
+				label: 'Senha',
+				value: user?.password,
+				inputProps: { hidden: true },
+				type: 'password'
+			}
 		];
 
 		return textInputProps.map((textInput) => {

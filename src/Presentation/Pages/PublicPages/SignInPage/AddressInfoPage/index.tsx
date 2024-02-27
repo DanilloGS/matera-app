@@ -10,8 +10,10 @@ const AddressInfoPage = () => {
 	const [address, setAddress] = useState<IAddress>();
 
 	const onChangeAddress = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const key = e.target.name as keyof IAddress;
-		if (address) setAddress({ ...address, [key]: e.target.value });
+		const { name, value } = e.target;
+		const key = name as keyof IAddress;
+		if (key === 'zipCode') checkCepOnChange(value);
+		if (address) setAddress({ ...address, [key]: value });
 	};
 
 	const checkCepOnChange = async (cep: string) => {
@@ -26,10 +28,7 @@ const AddressInfoPage = () => {
 			{
 				name: 'zipCode',
 				label: 'CEP',
-				inputProps: { maxLength: 8, minLength: 8 },
-				onBlur: (e: any) => {
-					checkCepOnChange(e.target.value);
-				}
+				inputProps: { maxLength: 8, minLength: 8 }
 			},
 			{
 				name: 'city',

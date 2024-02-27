@@ -19,6 +19,7 @@ const TextInput = ({
 	return (
 		<TextField
 			{...rest}
+			{...options}
 			{...registerValues}
 			id={name}
 			value={value}

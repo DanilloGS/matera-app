@@ -92,7 +92,7 @@ const ProductModal = ({
 			<Box className="product-modal--content-container">
 				<ImageUploader
 					name="avatar"
-					required
+					required={!image}
 					image={image}
 					onChange={setImage}
 				/>
